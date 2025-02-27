@@ -12,7 +12,7 @@ A machine learning model that identifies dog breeds from images with high accura
 
 Download the dataset from: [Kaggle - Dog Breed Image Dataset](https://www.kaggle.com/datasets/khushikhushikhushi/dog-breed-image-dataset)
 
-Place the extracted dataset in the `dataset/` directory with the following structure:
+Place the extracted dataset in the `model/` directory with the following structure:
 
 ```
 dataset/
