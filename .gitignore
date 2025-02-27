@@ -1,0 +1,9 @@
+# Dataset directories
+dataset/
+dataset/*/
+**/train/
+**/validation/
+
+# Python cache
+__pycache__/
+*.py[cod]
