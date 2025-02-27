@@ -61,9 +61,11 @@ python3.12 predict_with_plots.py
 ```
 
 Output: Creates a visualization showing the predicted breed and confidence scores.
+![Dog Breed Prediction Result](model/prediction_result.png)
 
 ## Model Performance
 
 - Validation Accuracy: ~99%
 - Supported Breeds: 10 popular dog breeds
 - Processing Time: ~1 second per image on CPU
+
