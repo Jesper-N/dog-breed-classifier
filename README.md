@@ -1,71 +1,99 @@
 # dog-breed-classifier
 
-A machine learning model that identifies dog breeds from images with high accuracy (~99% validation accuracy).
+A straightforward image classifier that recognizes 10 common dog breeds. The model hits around 99% accuracy on the validation set, and you can run it locally on a standard CPU in about a second per image. 
 
-## Requirements
+I built this for an AI class assignment. We had an open-ended prompt to build any model we wanted, and I chose to use it as an opportunity to experiment with image recognition.
 
-- Python 3.8+ (tested with Python 3.12)
-- Dataset of 10 dog breeds (see Dataset section)
-- 4GB+ RAM (no GPU required)
+## Results
 
-## Dataset
+Here is what the model outputs when you pass it a test image:
 
-Download the dataset from: [Kaggle - Dog Breed Image Dataset](https://www.kaggle.com/datasets/khushikhushikhushi/dog-breed-image-dataset)
+![Prediction Result](model/prediction_result.jpg)
 
-Place the extracted dataset in the `model/` directory with the following structure:
+### Confusion Matrix
 
+The model rarely mixes up these breeds. Here is how its predictions broke down across the validation set:
+
+![Confusion Matrix](model/confusion_matrix.jpg)
+
+### Training History
+
+Training converged pretty fast. Here are the accuracy and loss curves from the run:
+
+![Training History](model/training_history.jpg)
+
+## Getting Started
+
+You need Python 3.8 or newer. I tested it on Python 3.12. You also need at least 4GB of RAM.
+
+### 1. Download the Dataset
+
+Grab the dataset from [Kaggle - Dog Breed Image Dataset](https://www.kaggle.com/datasets/khushikhushikhushi/dog-breed-image-dataset).
+
+Extract it into the `model/dataset/` directory so the structure looks like this:
+
+```text
+model/
+  dataset/
+    Beagle/
+    Boxer/
+    Bulldog/
+    Dachshund/
+    German_Shepherd/
+    Golden_Retriever/
+    Labrador_Retriever/
+    Poodle/
+    Rottweiler/
+    Yorkshire_Terrier/
 ```
-dataset/
-  ├── Beagle/
-  ├── Boxer/
-  ├── Bulldog/
-  ├── Dachshund/
-  ├── German_Shepherd/
-  ├── Golden_Retriever/
-  ├── Labrador_Retriever/
-  ├── Poodle/
-  ├── Rottweiler/
-  └── Yorkshire_Terrier/
-```
 
-## Install requirements
+### 2. Install Dependencies
+
+Move into the `model` directory and install the requirements:
 
 ```bash
+cd model
 pip install -r requirements.txt
 ```
 
-## Train and build model
+## Usage
+
+### Training
+
+If you want to train the model from scratch on your own machine:
 
 ```bash
-python3.12 model.py
+cd model
+python model.py
 ```
 
-Output: Creates a trained model file `dog_breed_classifier.keras` and performance visualizations.
+This run generates the `dog_breed_classifier.keras` file along with the performance plots you see above.
 
-## Predict dog breed in CLI
+### Predicting in the Terminal
+
+To classify a single image and print the result straight to your console:
 
 ```bash
-python3.12 model.py <image_path>
+cd model
+python model.py <path_to_image>
 ```
 
 Example:
-
 ```bash
-python3.12 model.py test_dog.jpg
+python model.py golden_test.jpeg
 ```
 
-## Predict dog breed and create a plot
+### Predicting with Visuals
+
+If you want to see the confidence scores plotted alongside the image, run the plot script:
 
 ```bash
-python3.12 predict_with_plots.py
+cd model
+python predict_with_plots.py
 ```
 
-Output: Creates a visualization showing the predicted breed and confidence scores.
-![Dog Breed Prediction Result](model/prediction_result.png)
+This drops a new `prediction_result.png` showing exactly how sure the model is about its guess.
 
-## Model Performance
+## License
 
-- Validation Accuracy: ~99%
-- Supported Breeds: 10 popular dog breeds
-- Processing Time: ~1 second per image on CPU
-
+MIT

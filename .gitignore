@@ -7,3 +7,5 @@ dataset/*/
 # Python cache
 __pycache__/
 *.py[cod]
+
+.DS_Store
